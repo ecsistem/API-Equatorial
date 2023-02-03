@@ -53,7 +53,7 @@ app.get('/open/:contractId', (req, res) => {
     });
 });
 
-app.listen(3000, () => {
+app.listen(8080, () => {
   console.log('API listening on port 3000');
 });
 
