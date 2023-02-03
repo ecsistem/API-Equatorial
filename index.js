@@ -40,7 +40,24 @@ app.get('/open/:contractId', (req, res) => {
     .loginWithBirhtday()
     .then((structure) => {
       client
-        .openInvoices(req.params.contractId, structure.getContractsId()[0])
+        .openInvoices(req.params.contractId, structure.getToken())
+        .then((openInvoices) => {
+          res.json(openInvoices);
+        })
+        .catch((error) => {
+          res.status(500).json({ error: error.message });
+        });
+    })
+    .catch((error) => {
+      res.status(500).json({ error: error.message });
+    });
+});
+app.get('/listinvoices/:contractId', (req, res) => {
+  client
+    .loginWithBirhtday()
+    .then((structure) => {
+      client
+      .listInvoice(req.params.contractId, structure.getToken())
         .then((openInvoices) => {
           res.json(openInvoices);
         })
@@ -54,7 +71,7 @@ app.get('/open/:contractId', (req, res) => {
 });
 
 app.listen(8080, () => {
-  console.log('API listening on port 3000');
+  console.log('API listening on port 8080');
 });
 
 // 003015335563
