@@ -1,8 +1,9 @@
 {
     "version": 2,
-    "name": "api",
+    "name": "equatorial",
+    "public": true,
     "builds": [
-       { "src": "app.js", "use": "@vercel/node" }
+       { "src": "index.js", "use": "@vercel/node" }
     ],
     "routes": [
        { "src": "/(.*)", "dest": "/index.js" }
