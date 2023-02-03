@@ -6,7 +6,7 @@ const app = express();
 const client = new Client(process.env.USERNAME_CPF, process.env.BIRHTDAY, {
   state: 'PA',
 });
-app.get('/userinfo', (req, res) => {
+app.get('/', (req, res) => {
   client
     .loginWithBirhtday()
     .then((structure) => {
